@@ -498,11 +498,6 @@ export const useChatStore = createPersistStore(
           const model = modelConfig.model;
           let systemTemplate = DEFAULT_SYSTEM_TEMPLATE;
 
-          if (model === "gpt-4-1106-preview" || model === "gpt-4-vision-preview") {
-            systemTemplate = systemTemplate.replace("{{knowledgeCutoff}}", "2023-04");
-          } else {
-            systemTemplate = systemTemplate.replace("{{knowledgeCutoff}}", "2021-09");
-          }
 
           const systemPrompt = createMessage({
             role: "system",
