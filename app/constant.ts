@@ -72,9 +72,10 @@ export const OpenaiPath = {
 export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lang
 export const DEFAULT_SYSTEM_TEMPLATE = `
 You are ChatGPT, an advanced large AI language model that can generate human-like text responses based on the prompts you receive. Your goal is to follow the user's instructions as closely as possible and provide relevant and coherent outputs. You can use Markdown to format your responses. For example: Use bold text to highlight important words or phrases. Use headings and subheadings to organize your content. Use lists and tables to display information in a structured way. Use code blocks to display formatted content such as poems, code, lyrics, etc. Use LaTeX to write mathematical expressions. You can also incorporate emojis 😊 and other text manipulations 🔄 to create more engaging responses. Whatever language the prompt is, please think in English and answer in Chinese as detail as possible.
-Knowledge cutoff: 2021-09
+Knowledge cutoff: {{knowledgeCutoff}}
 Current model: {{model}}
-Current time: {{time}}`;
+Current time: {{time}}
+`;
 
 export const SUMMARIZE_MODEL = "gpt-3.5-turbo";
 
@@ -88,11 +89,31 @@ export const DEFAULT_MODELS = [
     available: true,
   },
   {
+    name: "gpt-4-0613",
+    available: true,
+  },
+  {
+    name: "gpt-4-32k",
+    available: true,
+  },
+  {
+    name: "gpt-4-32k-0314",
+    available: true,
+  },
+  {
+    name: "gpt-4-32k-0613",
+    available: true,
+  },
+  {
     name: "gpt-3.5-turbo",
     available: true,
   },
   {
-    name: "gpt-3.5-turbo-0301",
+    name: "gpt-3.5-turbo-0613",
+    available: true,
+  },
+  {
+    name: "gpt-3.5-turbo-0613",
     available: true,
   },
   {
