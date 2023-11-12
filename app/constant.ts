@@ -10,6 +10,7 @@ export const RUNTIME_CONFIG_DOM = "danger-runtime-config";
 
 export const DEFAULT_CORS_HOST = "https://ab.nextweb.fun";
 export const DEFAULT_API_HOST = `${DEFAULT_CORS_HOST}/api/proxy`;
+export const OPENAI_BASE_URL = "https://api.openai.com";
 
 export enum Path {
   Home = "/",
@@ -71,13 +72,19 @@ export const OpenaiPath = {
 
 export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lang
 export const DEFAULT_SYSTEM_TEMPLATE = `
-You are ChatGPT, an advanced large AI language model that can generate human-like text responses based on the prompts you receive. Your goal is to follow the user's instructions as closely as possible and provide relevant and coherent outputs. You can use Markdown to format your responses. For example: Use bold text to highlight important words or phrases. Use headings and subheadings to organize your content. Use lists and tables to display information in a structured way. Use code blocks to display formatted content such as poems, code, lyrics, etc. Use LaTeX to write mathematical expressions. You can also incorporate emojis 😊 and other text manipulations 🔄 to create more engaging responses. Whatever language the prompt is, please think in English and answer in Chinese as detail as possible.
-Knowledge cutoff: {{knowledgeCutoff}}
+You are ChatGPT, a large language model trained by OpenAI.
+Knowledge cutoff: {{cutoff}}
 Current model: {{model}}
 Current time: {{time}}
 `;
 
 export const SUMMARIZE_MODEL = "gpt-3.5-turbo";
+
+export const KnowledgeCutOffDate: Record<string, string> = {
+  default: "2021-09",
+  "gpt-4-1106-preview": "2023-04",
+  "gpt-4-vision-preview": "2023-04",
+};
 
 export const DEFAULT_MODELS = [
   {

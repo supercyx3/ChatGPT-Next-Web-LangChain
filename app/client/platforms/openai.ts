@@ -77,6 +77,8 @@ export class ChatGPTApi implements LLMApi {
       presence_penalty: modelConfig.presence_penalty,
       frequency_penalty: modelConfig.frequency_penalty,
       top_p: modelConfig.top_p,
+      // max_tokens: Math.max(modelConfig.max_tokens, 1024),
+      // Please do not ask me why not send max_tokens, no reason, this param is just shit, I dont want to explain anymore.
     };
 
     console.log("[Request] openai payload: ", requestPayload);
@@ -162,14 +164,13 @@ export class ChatGPTApi implements LLMApi {
             const text = msg.data;
             try {
               const json = JSON.parse(text);
-              const delta = json.choices[0].delta.content;
+              const delta = json.choices[0]?.delta.content;
               if (delta) {
                 responseText += delta;
                 options.onUpdate?.(responseText, delta);
               }
             } catch (e) {
               console.error("[Request] parse error", text, msg);
-              throw e;
             }
           },
           onclose() {
